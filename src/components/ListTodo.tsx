@@ -51,7 +51,7 @@ export default function ListTodo({
           editTodo={editTodo}
           todoId={todo.id} />}
           >
-          <span>
+          <span style={{wordBreak: 'break-word',flex: 1}}>
           {todo.name}
           </span>
           </Button>

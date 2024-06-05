@@ -12,10 +12,14 @@ body{
   height: 100vh;
   display: grid;
   place-items: center;
+  background-color: #8758ff;
 }
 .container{
-  width: 800px;
-  height: 700px;
+  background-color: #fff;
+  /* min-width: 800px; */
+  margin: 0 10px;
+  max-width: 1000px;
+  min-height: 500px;
   border: 1px solid #000;
   padding: 20px;
 }
