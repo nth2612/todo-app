@@ -37,19 +37,21 @@ function App() {
     setNewTodoString(e.target.value)
   }
   const handleSubmit = () =>{
-    const newTodo : TodoType = {
-      id: uuidv4(),
-      name: newTodoString,
-      isCompleted: false,
-      isEditing: false
-    }
-    setTodoList((prev)=>{
-      const newList = [newTodo,...prev];
-      return newList;
-    })
-    setNewTodoString('')
-    if(inputRef.current){
-      inputRef.current.focus();
+    if(newTodoString){
+      const newTodo : TodoType = {
+        id: uuidv4(),
+        name: newTodoString,
+        isCompleted: false,
+        isEditing: false
+      }
+      setTodoList((prev)=>{
+        const newList = [newTodo,...prev];
+        return newList;
+      })
+      setNewTodoString('')
+      if(inputRef.current){
+        inputRef.current.focus();
+      }
     }
   }
   const updateCompleted = (todoId:string) => {
