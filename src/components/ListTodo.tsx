@@ -33,30 +33,31 @@ export default function ListTodo({
 
   return (
     <div style={{marginTop:'24px'}}>
-      {list.map(todo => {
-        return todo.isEditing ? (<EditTodo todoId={todo.id} editTodo={editTodo} key={todo.id} todoName={todo.name}/>) : (
-          <Button
-          key={todo.id}
-          style={{justifyContent:'space-between'}}
-          fullWidth
-          startIcon={
-          <Icon
-          isCompleted={todo.isCompleted}
-          updateCompleted={updateCompleted}
-          todoId={todo.id} />}
-          endIcon={
-          <EditDeleteTodo
-          key={todo.id}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-          todoId={todo.id} />}
-          >
-          <span style={{wordBreak: 'break-word',flex: 1}}>
-          {todo.name}
-          </span>
-          </Button>
-    )
-      })}
+      {list.length === 0 ? <p style={{textAlign: 'center'}}>Bạn chưa có công việc nào</p>
+            : list.map(todo => {
+            return todo.isEditing ? (<EditTodo todoId={todo.id} editTodo={editTodo} key={todo.id} todoName={todo.name}/>) : (
+              <Button
+              key={todo.id}
+              style={{justifyContent:'space-between'}}
+              fullWidth
+              startIcon={
+              <Icon
+              isCompleted={todo.isCompleted}
+              updateCompleted={updateCompleted}
+              todoId={todo.id} />}
+              endIcon={
+              <EditDeleteTodo
+              key={todo.id}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+              todoId={todo.id} />}
+              >
+              <span style={{wordBreak: 'break-word',flex: 1}}>
+              {todo.name}
+              </span>
+              </Button>
+        )
+          })}
     </div>
   )
 }
